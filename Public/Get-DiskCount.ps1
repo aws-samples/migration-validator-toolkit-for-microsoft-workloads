@@ -32,7 +32,7 @@ Function Get-DiskCount {
     if ($diskCount -lt 18) {
       $value = "[GREEN]"
       Write-Log -Message "The output of the ""$check"" check is $value"
-      $Action = "No Action required. The number of disks supported by all EC2 instances."
+      $Action = "No action required. The number of disks supported by all EC2 instances."
       Write-Log -Message $Action
     }
     else {

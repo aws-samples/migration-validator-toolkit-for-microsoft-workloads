@@ -52,7 +52,7 @@ function Get-SQLInstance {
                 if ($majorversion -eq 'SQL2017' -Or $majorversion -eq 'SQL2019' -Or $majorversion -eq 'SQL2022') {
                     $value = "[GREEN]"
                     Write-Log -Message "The output of the ""$check"" check is $value"
-                    $Action = "No Action required. The host is running $majorversion $($instance.Edition). It's an actively supported MSSQL version by Microsoft."
+                    $Action = "No action required. The host is running $majorversion $($instance.Edition). It's an actively supported MSSQL version by Microsoft."
                     Write-Log -Message $Action
                 }
                 elseif ($majorversion -eq 'SQL2014') {
@@ -73,7 +73,7 @@ function Get-SQLInstance {
         else {
             $value = "[GREEN]"
             Write-Log -Message "The output of the ""$check"" check is $value"
-            $Action = "No Action required. SQL server can not be found."
+            $Action = "No action required. SQL server can not be found."
             Write-Log -Message $Action
 
             $Output.Add((New-PSObjectResponse -Check "$check" -Status "$value" -Action "$Action"))

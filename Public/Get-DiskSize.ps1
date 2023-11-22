@@ -31,7 +31,7 @@ Function Get-DiskSize {
     if ($numberofOversizedDisks -eq 0) {
       $value = "[GREEN]"
       Write-Log -Message "The output of the ""$check"" check is $value"
-      $Action = "No Action required. The size of all disks are supported by all EC2 instances."
+      $Action = "No action required. The size of all disks are supported by all EC2 instances."
       Write-Log -Message $Action
     }
     else {

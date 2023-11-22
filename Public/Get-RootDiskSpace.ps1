@@ -33,7 +33,7 @@ Function Get-RootDiskSpace {
     if ($rootDriverFree -gt 2) {
       $value = "[GREEN]"
       Write-Log -Message "The output of the ""$check"" check is $value"
-      $Action = "No Action required. There is $rootDriverFree GB free space on $($rootDriverName[0]) Drive."
+      $Action = "No action required. There is $rootDriverFree GB free space on $($rootDriverName[0]) Drive."
       Write-Log -Message $Action
     }
     else {

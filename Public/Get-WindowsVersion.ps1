@@ -40,7 +40,7 @@ Function Get-WindowsVersion {
     else {
       $value = "[GREEN]"
       Write-Log -Message "The output of the ""$check"" check is $value"
-      $Action = "No Action required. The host is running $osName. It's supported to host in AWS and an actively supported OS by Microsoft."
+      $Action = "No action required. The host is running $osName. It's supported to host in AWS and an actively supported OS by Microsoft."
       Write-Log -Message $Action
     }
   }

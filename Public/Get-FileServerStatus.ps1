@@ -89,7 +89,7 @@ Function Get-FileServerStatus {
     else {
       $value = "[GREEN]"
       Write-Log -Message "The output of the ""$check"" check is $value"
-      $Action = "No Action required. File server roles or shared folders can not be found."
+      $Action = "No action required. File server roles or shared folders can not be found."
       Write-Log -Message $Action
     }
   }

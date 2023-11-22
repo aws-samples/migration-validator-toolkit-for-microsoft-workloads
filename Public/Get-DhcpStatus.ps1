@@ -28,13 +28,13 @@ Function Get-DhcpStatus {
     if ($service.Status -eq "Running") {
       $value = "[GREEN]"
       Write-Log -Message "The check ""$check"" output is $value"
-      $Action = "No Action required. DHCP service is enabled."
+      $Action = "No action required. DHCP service is enabled."
       Write-Log -Message $Action
     }
     else {
       $value = "[YELLOW]"
       Write-Log -Message "The check ""$check"" output is $value" -LogLevel "WARN"
-      $Action = "DHCP service is not enabled. Before migration, enable DHCP service or make sure the source IP address on this host matches the the ENI that is attached to the ec2 insatnce. Please check using ENI - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html."
+      $Action = "DHCP service is not enabled. Before migration, enable DHCP service or make sure the source IP address on this host matches the the ENI that is attached to the ec2 instance. Please check using ENI - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html."
       Write-Log -Message $Action -LogLevel "WARN"
       #DHCP service is not enabled. Make sure the source IP address matches the desitination - https://docs.aws.amazon.com/mgn/latest/ug/copy-private.html or enable DHCP before migration"
     }

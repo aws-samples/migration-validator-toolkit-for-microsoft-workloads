@@ -43,7 +43,7 @@ Function Get-IISStatus {
     else {
       $value = "[GREEN]"
       Write-Log -Message "The output of the ""$check"" check is $value"
-      $Action = "No Action required. IIS server Role can not be found."
+      $Action = "No action required. IIS server role can not be found."
       Write-Log -Message $Action
     }
   }

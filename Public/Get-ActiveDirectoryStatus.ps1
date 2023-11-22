@@ -39,13 +39,13 @@ Function Get-ActiveDirectoryStatus {
       elseif ($adFeature.InstallState -eq "Installed" -and $product -eq "3") {
         $value = "[GREEN]"
         Write-Log -Message "The output of the ""$check"" check is $value"
-        $Action = "No Action required. The Active directory role is installed but the host is not a Domain Controller."
+        $Action = "No action required. The active directory role is installed but the host is not a Domain Controller."
         Write-Log -Message $Action
       }
       else {
         $value = "[GREEN]"
         Write-Log -Message "The output of the ""$check"" check is $value"
-        $Action = "No Action required. The Active directory role can not be found."
+        $Action = "No action required. The active directory role can not be found."
         Write-Log -Message $Action
       }
     }
@@ -61,7 +61,7 @@ Function Get-ActiveDirectoryStatus {
   else {
     $value = "[GREEN]"
     Write-Log -Message "The output of the ""$check"" check is $value"
-    $Action = "No Action required. The Active directory role can not be found."
+    $Action = "No action required. The active directory role can not be found."
     Write-Log -Message $Action
   }
   $Output.Add((New-PSObjectResponse -Check "$check" -Status "$value" -Action "$Action"))

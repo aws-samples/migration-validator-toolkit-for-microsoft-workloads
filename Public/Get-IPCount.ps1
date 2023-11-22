@@ -45,13 +45,13 @@ Function Get-IPv4Count {
     if ($totalIpCount -le 2 -and $manualIpCount -eq 0) {
       $value = "[GREEN]"
       Write-Log -Message "The output of the ""$check"" check is $value"
-      $Action = "No Action required. There are less than 2 IPv4 addresses, assigned by DHCP. All EC2 instances support that."
+      $Action = "No action required. There are less than 2 IPv4 addresses, assigned by DHCP. All EC2 instances support that."
       Write-Log -Message $Action
     }
     elseif ($totalIpCount -le 2 -and $manualIpCount -ne 0) {
       $value = "[YELLOW]"
       Write-Log -Message "The output of the ""$check"" check is $value" -LogLevel "WARN"
-      $Action = "There is $totalIpCount IPv4 address on the host, $manualIpCount assigned manually. Make sure the ENI that is attached to the EC2 insatnce matchs the IP address of the host - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html."
+      $Action = "There is $totalIpCount IPv4 address on the host, $manualIpCount assigned manually. Make sure the ENI that is attached to the EC2 instance match the IP address of the host - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html."
       Write-Log -Message $Action -LogLevel "WARN"
     }
     elseif ($totalIpCount -gt 2 -and $manualIpCount -eq 0) {
@@ -63,13 +63,13 @@ Function Get-IPv4Count {
     elseif ($totalIpCount -gt 2 -and $dhcpIpCount -eq 0) {
       $value = "[YELLOW]"
       Write-Log -Message "The output of the ""$check"" check is $value" -LogLevel "WARN"
-      $Action = "There are $totalIpCount IP addresses on the host assigned manually. Make sure to select the right EC2 instance - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html#AvailableIpPerENI. and the ENI that is attached to the ec2 insatnce matchs the IP address of the host - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html."
+      $Action = "There are $totalIpCount IP addresses on the host assigned manually. Make sure to select the right EC2 instance - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html#AvailableIpPerENI. and the ENI that is attached to the ec2 instance match the IP address of the host - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html."
       Write-Log -Message $Action -LogLevel "WARN"
     }
     else {
       $value = "[YELLOW]"
       Write-Log -Message "The output of the ""$check"" check is $value" -LogLevel "WARN"
-      $Action = "There are $totalIpCount IP addresses on the host and $manualIpCount assigned manually. Make sure to select the right EC2 instance - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html#AvailableIpPerENI. and the ENI that is attached to the ec2 insatnce matchs the IP address of the host - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html."
+      $Action = "There are $totalIpCount IP addresses on the host and $manualIpCount assigned manually. Make sure to select the right EC2 instance - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html#AvailableIpPerENI. and the ENI that is attached to the ec2 instance match the IP address of the host - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/using-eni.html."
       Write-Log -Message $Action -LogLevel "WARN"
     }
   }

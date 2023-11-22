@@ -28,7 +28,7 @@ Function Get-NetworkInterfaceCount {
     if ($physicalNetworkInterfaceCount -le 2) {
       $value = "[GREEN]"
       Write-Log -Message "The output of the ""$check"" check is $value"
-      $Action = "No Action required. The number of physical network interfaces supported by all EC2 instances."
+      $Action = "No action required. The number of physical network interfaces supported by all EC2 instances."
       Write-Log -Message $Action
     }
     else {
