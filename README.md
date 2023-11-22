@@ -86,8 +86,7 @@ $uri = 'https://github.com/aws-samples/migration-validator-toolkit-for-microsoft
 $destination = (Get-Location).Path
 if ((Test-Path -Path "$destination\MigrationValidatorToolkit.zip" -PathType Leaf) -or (Test-Path -Path "$destination\MigrationValidatorToolkit")) {
     write-host "File $destination\MigrationValidatorToolkit.zip or folder $destination\MigrationValidatorToolkit found, exiting"
-}
-else {
+}else {
     Write-host "Enable TLS 1.2 for this PowerShell session only."
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     $webClient = New-Object System.Net.WebClient
@@ -97,7 +96,7 @@ else {
     Add-Type -Assembly "system.io.compression.filesystem"
     [System.IO.Compression.ZipFile]::ExtractToDirectory("$destination\MigrationValidatorToolkit.zip","$destination\MigrationValidatorToolkit")
     Write-host "Extracting MigrationValidatorToolkit.zip complete successfully"
-    Import-Module "$destination\MigrationValidatorToolkit\MigrationValidatorToolkit-Toolkit.psm1"; Invoke-MigrationValidatorToolkit
+    Import-Module "$destination\MigrationValidatorToolkit\migration-validator-toolkit-for-microsoft-workloads-main\MigrationValidatorToolkit.psm1"; Invoke-MigrationValidatorToolkit
 }
 ```
 
