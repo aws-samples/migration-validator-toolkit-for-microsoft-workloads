@@ -25,7 +25,7 @@ Check                   Value    Action
 -----                   -----    ------
 Windows version         [GREEN]  No action required. The host is running Microsoft Windows 11 Enterprise. It''s supported to host in AWS and an actively supported OS by Microsoft.
 Authentication method   [YELLOW] The host is part of a domain. After migration, if there is connectivity to a Domain Controller, use a domain/local user to RDP. If not, use a local user.
-Root Disk Free Space    [GREEN]  No action required. There is 206.514 GB free space on C Drive.
+Boot Disk Free Space    [GREEN]  No action required. There is 206.514 GB free space on C Drive.
 Disk Count              [GREEN]  No action required. The number of disks supported by all EC2 instances.
 Disk size               [GREEN]  No action required. The size of all disks are supported by all EC2 instances.
 DHCP service            [GREEN]  No action required. DHCP service is enabled.
@@ -52,7 +52,7 @@ MSSQL version           [GREEN]  No action required. SQL server can not be found
 
 #### Switches
 - `s3BucketName`: Optional. The name of the S3bucket If you are hosting the module in S3. By default, the module will be downloaded from the GitHub repository.
-- `s3KeyPrefix` : Optional. The name of the S3 prefix of the object If you are hosting the module in S3. By default, the module will be downloaded from the GitHub repository.
+- `s3KeyPrefix`: Optional. The name of the S3 prefix of the object If you are hosting the module in S3. By default, the module will be downloaded from the GitHub repository.
 
 Use any computer within the domain using a domain user that has an administrator access to target computers. Download source code as ZIP file and extract. Run as administrator in PowerShell.
 
@@ -105,7 +105,7 @@ if ((Test-Path -Path "$destination\MigrationValidatorToolkit.zip" -PathType Leaf
 | --- | --- | --- | --- |
 | Windows version | Check whether the Windows Operating System is 2012 R2 or older. For 2012 R2 or older, consider upgrading. Review [AWS End of Support](https://aws.amazon.com/windows/faq/#eos-m-qa) options. |  Get-WindowsVersion | NA
 | Authentication method | Check whether the host is part of a domain or not. This is a reminder that you would need a credential (domain or local) to RDP to the server after migration. | Get-AuthenticationMethod | ProductType
-| Root Disk Free Space | Check if there is at least 2GB of free space on the root volume. The space will be used to install the EC2 drivers and other tools like [EC2Launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch-v2.html). | Get-RootDiskSpace | NA
+| Boot Disk Free Space | Check if there is at least 2GB of free space on the boot volume. The space will be used to install the EC2 drivers and other tools like [EC2Launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch-v2.html). | Get-BootDiskSpace | NA
 | Disk Count | Count the number of disks used by the host. Check if the host is compliant with [instance volume limits](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/volume_limits.html). | Get-DiskCount | NA
 | Disk size | Check if there is any disk larger than 64TiB. Check if the host within [EBS volume limits](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/volume_constraints.html). | Get-DiskSize | NA
 | DHCP service | Check if DHCP service is enabled or not. | Get-DhcpStatus | NA

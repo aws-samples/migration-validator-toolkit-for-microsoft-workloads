@@ -145,7 +145,7 @@ function Invoke-MigrationValidatorToolkit {
 		# Calling each check in order
 		Get-WindowsVersion | Out-Null
 		Get-AuthenticationMethod | Out-Null
-		Get-RootDiskSpace | Out-Null
+		Get-BootDiskSpace | Out-Null
 		Get-DiskCount | Out-Null
 		Get-DiskSize | Out-Null
 		Get-DhcpStatus | Out-Null
