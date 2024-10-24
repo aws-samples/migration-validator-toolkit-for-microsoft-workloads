@@ -51,17 +51,18 @@ Function Get-FileServerStatus {
 
     Write-Log "The output for the share folders: "
     if ($null -ne $smbShares) {
+      Write-Log $smbShares
+      Write-Log "There are $($smbShares.Path.Count) of shared folders"
       foreach ($Share in $smbShares) {
-        Write-Log $smbShares
-        Write-Log "There are $($smbShares.Path.Count) of shared folders"
         $folderPath = $Share.Path
-        $items = Get-ChildItem $folderPath -Recurse
+        Write-Log "Retriving the information for $folderPath"
+        $items = Get-ChildItem $folderPath -Recurse -File
         $size = [math]::Round(((($items | Measure-Object -Property Length -Sum).Sum) / 1073741824), 3)
         $count = ($items | Measure-Object).Count
         $totalSize = $totalSize + $size
-        Write-Log "The Folder $folderPath has '$count' Files with size '$size' GB"
+        Write-Log "The Folder $folderPath has '$count' Files with size '$size' GB."
       }
-      Write-Log "The total size of shared folders is '$totalSize' GB"
+      Write-Log "The total size of shared folders is '$totalSize' GB."
     }
     else {
       Write-Log "Null"
